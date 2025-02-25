@@ -14,6 +14,14 @@ data "aws_availability_zones" "available" {
   }
 }
 
+resource "aws_vpc" "leftfield" {
+  cidr_block = "10.199.0.0/16"
+
+  tags = {
+    Project = var.project_tag
+  }
+}
+
 resource "aws_vpc" "example" {
   cidr_block = var.vpc_cidr_block
 
